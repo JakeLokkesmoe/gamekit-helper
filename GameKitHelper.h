@@ -23,6 +23,7 @@
 
 #define LEADERBOARD_IDENTIFIER @"com.companyname.category.leaderboard"
 
+// Protocol for GameKitHelper deleage calls
 @protocol GameKitHelperProtocol
 
 -(void) onLocalPlayerAuthenticationChanged;
@@ -40,9 +41,10 @@
 
 @end
 
-
-@interface GameKitHelper : NSObject <GKLeaderboardViewControllerDelegate, GKAchievementViewControllerDelegate> {
-   id<GameKitHelperProtocol> delegate;
+// Singleton class to manage Game Center integration
+@interface GameKitHelper : NSObject<GKLeaderboardViewControllerDelegate, GKAchievementViewControllerDelegate> {
+ @private
+  id<GameKitHelperProtocol> delegate;
 }
 
 @property (nonatomic, readonly) bool isGameCenterAvailable;

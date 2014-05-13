@@ -24,6 +24,9 @@
 static NSString* kCachedAchievementsFile = @"CachedAchievements.archive";
 
 @implementation GameKitHelper
+@synthesize isGameCenterAvailable;
+@synthesize lastError;
+@synthesize achievementsDictionary;
 
 static GameKitHelper *instanceOfGameKitHelper;
 
@@ -50,9 +53,6 @@ static GameKitHelper *instanceOfGameKitHelper;
 }
 
 #pragma mark Init & Dealloc
-@synthesize isGameCenterAvailable;
-@synthesize lastError;
-@synthesize achievementsDictionary;
 
 -(id) init {
    if ((self = [super init])) {
