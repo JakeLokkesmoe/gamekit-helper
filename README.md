@@ -38,53 +38,52 @@ else {
 
 Now all you have left to do is provide the implementations for the `GameKitHelperProtocol` methods inside of the implementation of your game controller.
 ``` objective-c
-#pragma mark GameKitHelper delegate methods
 -(void) onLocalPlayerAuthenticationChanged {
-    GKLocalPlayer* localPlayer = [GKLocalPlayer localPlayer];
-    CCLOG(@"LocalPlayer isAuthenticated changed to: %@", localPlayer.authenticated ? @"YES" : @"NO");
+   GKLocalPlayer* localPlayer = [GKLocalPlayer localPlayer];
+   CCLOG(@"LocalPlayer isAuthenticated changed to: %@", localPlayer.authenticated ? @"YES" : @"NO");
    
-    if (localPlayer.authenticated) {
-        GameKitHelper* gkHelper = [GameKitHelper sharedGameKitHelper];
-        [gkHelper getScoresAndAlias];
-        [gkHelper loadAchievements];
-    }
+   if (localPlayer.authenticated) {
+      GameKitHelper* gkHelper = [GameKitHelper sharedGameKitHelper];
+      [gkHelper getScoresAndAlias];
+      [gkHelper loadAchievements];
+   }
 }
 
 -(void) onScoresAndAliasForLeaderboardReceived:(NSDictionary*) playerScores {
    CCLOG(@"onScoresAndAliasForLeaderboardReceived: %@", [playerScores description]);
-    _playerScores = playerScores;
-    _highscore = 0;
-    [self displayScore];
+   _playerScores = playerScores;
+   _highscore = 0;
+   [self displayScore];
 }
 
 -(void) onFriendListReceived:(NSArray*)friends {
-    CCLOG(@"onFriendListReceived: %@", [friends description]);
-    [[GameKitHelper sharedGameKitHelper] getPlayerInfo:friends];
+   CCLOG(@"onFriendListReceived: %@", [friends description]);
+   [[GameKitHelper sharedGameKitHelper] getPlayerInfo:friends];
 }
 
 -(void) onPlayerInfoReceived:(NSArray*)players {
-    CCLOG(@"onPlayerInfoReceived: %@", [players description]);
+   CCLOG(@"onPlayerInfoReceived: %@", [players description]);
 }
 
 -(void) onScoresSubmitted:(bool)success {
-    CCLOG(@"onScoresSubmitted: %@", success ? @"YES" : @"NO");
+   CCLOG(@"onScoresSubmitted: %@", success ? @"YES" : @"NO");
 }
 
 -(void) onScoresReceived:(NSArray*)scores {
-    CCLOG(@"onScoresReceived: %@", [scores description]);
+   CCLOG(@"onScoresReceived: %@", [scores description]);
 }
 
 -(void) onLocalPlayerScoreReceived:(GKScore*)score {
-    CCLOG(@"onLocalPlayerScoreReceived: %lld", score.value);
-    _highscore = score.value;
-    [self displayScore];
+   CCLOG(@"onLocalPlayerScoreReceived: %lld", score.value);
+   _highscore = score.value;
+   [self displayScore];
 }
 
 -(void) onLeaderboardViewDismissed {
-    CCLOG(@"onLeaderboardViewDismissed");
+   CCLOG(@"onLeaderboardViewDismissed");
 }
 
 -(void) onAchievementsViewDismissed {
-    CCLOG(@"onAchievementsViewDismissed");
+   CCLOG(@"onAchievementsViewDismissed");
 }
 ```
