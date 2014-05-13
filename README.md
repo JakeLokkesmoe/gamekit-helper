@@ -37,9 +37,7 @@ else {
 }
 ```
 
-Now all you have left to do is provide the implementations for the `GameKitHelperProtocol` methods.
-
-Example:
+Now all you have left to do is provide the implementations for the `GameKitHelperProtocol` methods inside of the implementation of your game controller.
 ``` objective-c
 #pragma mark GameKitHelper delegate methods
 -(void) onLocalPlayerAuthenticationChanged {
