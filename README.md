@@ -28,8 +28,8 @@ GKLocalPlayer* localPlayer = [GKLocalPlayer localPlayer];
 GameKitHelper *gkHelper = [GameKitHelper sharedGameKitHelper];
 gkHelper.delegate = self;
 if (localPlayer.authenticated) {
-    [gkHelper getLocalPlayerFriends];
-    [gkHelper getLocalPlayerHighScore];
+    [gkHelper getScoresAndAlias];
+    [gkHelper loadAchievements];
 }
 else {
     [gkHelper authenticateLocalPlayer];
