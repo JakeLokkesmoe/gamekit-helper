@@ -27,7 +27,6 @@ Then during setup call:
 GKLocalPlayer* localPlayer = [GKLocalPlayer localPlayer];
 GameKitHelper *gkHelper = [GameKitHelper sharedGameKitHelper];
 gkHelper.delegate = self;
-gameGrid.delegate = self;
 if (localPlayer.authenticated) {
     [gkHelper getLocalPlayerFriends];
     [gkHelper getLocalPlayerHighScore];
