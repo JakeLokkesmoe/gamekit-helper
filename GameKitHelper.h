@@ -37,12 +37,12 @@
 -(void) authenticateLocalPlayer;
 -(void) getLocalPlayerFriends;
 -(void) getPlayerInfo:(NSArray*)players;
--(void) getScoresAndAlias;
--(void) getScoresAndAliasForLeaderboard:(GKLeaderboard *)leaderboardRequest;
 
 // Scores
 -(void) submitScore:(int64_t)score category:(NSString*)category;
 -(void) getLocalPlayerHighScore;
+-(void) getScoresAndAlias;
+-(void) getScoresAndAliasForLeaderboard:(GKLeaderboard *)leaderboardRequest;
 
 // Achievements
 -(void) loadAchievements;
